@@ -11,7 +11,7 @@ import org.springframework.test.context.ContextConfiguration;
 public class PatientRepositoryIntegrationTest extends AbstractIntegrationTest {
 
 	@Autowired
-	PatientRepository repository;
+    PatientDao repository;
 
 	@Before
 	public void purgeRepository() {

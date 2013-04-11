@@ -3,10 +3,9 @@ package org.medical.service.impl;
 import com.mysema.query.types.Predicate;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import org.medical.dao.mongo.PatientRepository;
+import org.medical.dao.mongo.PatientDao;
 import org.medical.model.mongo.Patient;
-import org.medical.model.mongo.PatientSearch;
-import org.medical.service.PatientService;
+import org.medical.service.PatientManager;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.runners.MockitoJUnitRunner;
@@ -17,9 +16,10 @@ import static org.mockito.Mockito.verify;
 @RunWith(MockitoJUnitRunner.class)
 public class PatientServiceImplTest {
 	@Mock
-    PatientRepository repository;
+    PatientDao repository;
 	@Mock Predicate predicate;
-	@InjectMocks PatientService service = new PatientServiceImpl();
+	@InjectMocks
+    PatientManager service = new PatientManagerImpl();
 	
 	@Test public void addShouldCallRepositorySave() {
 		Patient patient = new Patient("Sagar", "Naniv");

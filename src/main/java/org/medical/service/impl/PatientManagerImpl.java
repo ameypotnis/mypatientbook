@@ -6,7 +6,7 @@ import org.medical.service.PatientManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("patientService") public class PatientManagerImpl implements PatientManager {
+@Service("patientManager") public class PatientManagerImpl implements PatientManager {
 	
 	@Autowired
     PatientDao repository;
