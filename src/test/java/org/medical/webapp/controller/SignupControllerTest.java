@@ -1,8 +1,8 @@
 package org.medical.webapp.controller;
 
-import org.appfuse.Constants;
-import org.appfuse.model.Address;
-import org.appfuse.model.User;
+import org.medical.Constants;
+import org.medical.model.Address;
+import org.medical.model.User;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mock.web.MockHttpServletRequest;

@@ -2,8 +2,8 @@ package org.medical.webapp.listener;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.appfuse.Constants;
-import org.appfuse.service.LookupManager;
+import org.medical.Constants;
+import org.medical.service.LookupManager;
 import org.springframework.beans.factory.NoSuchBeanDefinitionException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -17,7 +17,7 @@ import javax.servlet.ServletContextEvent;
 import javax.servlet.ServletContextListener;
 import java.util.HashMap;
 import java.util.Map;
-import org.appfuse.service.GenericManager;
+import org.medical.service.GenericManager;
 
 /**
  * <p>StartupListener class used to initialize and database settings

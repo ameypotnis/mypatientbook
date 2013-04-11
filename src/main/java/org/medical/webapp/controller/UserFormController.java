@@ -1,12 +1,12 @@
 package org.medical.webapp.controller;
 
 import org.apache.commons.lang.StringUtils;
-import org.appfuse.Constants;
-import org.appfuse.model.Role;
-import org.appfuse.model.User;
-import org.appfuse.service.RoleManager;
-import org.appfuse.service.UserExistsException;
-import org.appfuse.service.UserManager;
+import org.medical.Constants;
+import org.medical.model.Role;
+import org.medical.model.User;
+import org.medical.service.RoleManager;
+import org.medical.service.UserExistsException;
+import org.medical.service.UserManager;
 import org.medical.webapp.util.RequestUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.MailException;

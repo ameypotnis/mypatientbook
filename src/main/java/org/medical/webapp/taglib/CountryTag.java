@@ -1,6 +1,6 @@
 package org.medical.webapp.taglib;
 
-import org.appfuse.model.LabelValue;
+import org.medical.model.LabelValue;
 import org.displaytag.tags.el.ExpressionEvaluator;
 
 import javax.servlet.jsp.JspException;

@@ -1,13 +1,13 @@
 package org.medical.webapp.controller;
 
-import org.appfuse.Constants;
+import org.medical.Constants;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.servlet.ModelAndView;
 
 import java.util.List;
 import java.util.Map;
-import org.appfuse.service.UserManager;
+import org.medical.service.UserManager;
 
 import static org.junit.Assert.*;
 

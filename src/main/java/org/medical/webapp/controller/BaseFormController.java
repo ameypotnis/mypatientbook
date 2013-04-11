@@ -2,10 +2,10 @@ package org.medical.webapp.controller;
 
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;
-import org.appfuse.Constants;
-import org.appfuse.model.User;
-import org.appfuse.service.MailEngine;
-import org.appfuse.service.UserManager;
+import org.medical.Constants;
+import org.medical.model.User;
+import org.medical.service.MailEngine;
+import org.medical.service.UserManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.propertyeditors.CustomDateEditor;
 import org.springframework.beans.propertyeditors.CustomNumberEditor;

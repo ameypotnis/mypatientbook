@@ -1,6 +1,6 @@
 package org.medical.webapp.filter;
 
-import org.appfuse.Constants;
+import org.medical.Constants;
 import org.springframework.context.i18n.LocaleContextHolder;
 import org.springframework.web.filter.OncePerRequestFilter;
 

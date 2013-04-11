@@ -1,6 +1,6 @@
 package org.medical.webapp.listener;
 
-import org.appfuse.model.User;
+import org.medical.model.User;
 import org.springframework.security.authentication.AuthenticationTrustResolver;
 import org.springframework.security.authentication.AuthenticationTrustResolverImpl;
 import org.springframework.security.core.Authentication;
