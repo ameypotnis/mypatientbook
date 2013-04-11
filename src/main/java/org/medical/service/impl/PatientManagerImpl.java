@@ -1,15 +1,15 @@
 package org.medical.service.impl;
 
-import org.medical.dao.mongo.PatientRepository;
+import org.medical.dao.mongo.PatientDao;
 import org.medical.model.mongo.*;
-import org.medical.service.PatientService;
+import org.medical.service.PatientManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("patientService") public class PatientServiceImpl implements PatientService {
+@Service("patientService") public class PatientManagerImpl implements PatientManager {
 	
 	@Autowired
-    PatientRepository repository;
+    PatientDao repository;
 	QPatient patient = QPatient.patient;
 
 	@Override

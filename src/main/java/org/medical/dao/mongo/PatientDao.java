@@ -7,7 +7,7 @@ import org.springframework.data.repository.CrudRepository;
 
 import java.util.List;
 
-public interface PatientRepository extends CrudRepository<Patient, ObjectId>, QueryDslPredicateExecutor<Patient> {
+public interface PatientDao extends CrudRepository<Patient, ObjectId>, QueryDslPredicateExecutor<Patient> {
 	List<Patient> findByLastname(String name);
 	List<Patient> findByFirstnameLike(String name);
 	List<Patient> findByFirstnameLikeOrLastnameLike(String firstname, String lastname);

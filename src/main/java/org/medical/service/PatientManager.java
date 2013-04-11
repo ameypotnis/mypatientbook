@@ -5,7 +5,7 @@ import org.medical.model.mongo.Followup;
 import org.medical.model.mongo.History;
 import org.medical.model.mongo.Patient;
 
-public interface PatientService {
+public interface PatientManager {
 	public void add(Patient patient);
 	public void remove(Patient patient);
 	public Iterable<Patient> findAll(String search);
