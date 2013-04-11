@@ -1,8 +1,7 @@
 package org.medical.model.mongo;
 
-import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
+import java.io.Serializable;
+import java.util.*;
 
 import javax.sound.midi.Track;
 import javax.xml.bind.annotation.XmlRootElement;
@@ -19,7 +18,7 @@ import org.springframework.util.StringUtils;
  */
 @Document
 @XmlRootElement
-public class Patient {
+public class Patient  implements Serializable {
 
 	@Id
 	private ObjectId id;
@@ -32,8 +31,14 @@ public class Patient {
 	private Long mobile;
 	private String address;
 
-	private History history = new History();
-	private Complaint complaint = new Complaint();
+  /*  private Map<String, String> history = new HashMap<String, String>();
+    private String chiefComplaint;
+    private String associatedComplaint;
+    private Map<String, String> examination = new HashMap<String, String>();
+    private Map<String, String> investigation = new HashMap<String, String>();
+    private Map<String, String> test = new HashMap<String, String>();
+    private Map<String, String> diagnosis = new HashMap<String, String>();*/
+
 	private List<Followup> followups = new ArrayList<Followup>();
 	
 	public Patient() {	}
@@ -103,32 +108,50 @@ public class Patient {
 	public String getCode() {
 		return code;
 	}
-	
-	public History getHistory() {
-		return history;
-	}
 
-	public void setHistory(History history) {
-		this.history = history;
-	}
 
-	public Complaint getComplaint() {
-		return complaint;
-	}
+    public Date getDateOfBirth() {
+        return dateOfBirth;
+    }
 
-	public void setComplaint(Complaint complaint) {
-		this.complaint = complaint;
-	}
+    public void setDateOfBirth(Date dateOfBirth) {
+        this.dateOfBirth = dateOfBirth;
+    }
 
-	@Override
-	public String toString() {
-		return "Patient [id=" + id + ", code=" + code + ", firstname="
-				+ firstname + ", lastname=" + lastname + ", mobile=" + mobile
-				+ ", address=" + address + ", history=" + history
-				+ ", complaint=" + complaint + ", followups=" + followups + "]";
-	}
+    public String getSex() {
+        return sex;
+    }
 
-	@Override
+    public void setSex(String sex) {
+        this.sex = sex;
+    }
+
+    public String getOccupation() {
+        return occupation;
+    }
+
+    public void setOccupation(String occupation) {
+        this.occupation = occupation;
+    }
+
+
+    @Override
+    public String toString() {
+        return "Patient{" +
+                "id=" + id +
+                ", code='" + code + '\'' +
+                ", firstname='" + firstname + '\'' +
+                ", lastname='" + lastname + '\'' +
+                ", dateOfBirth=" + dateOfBirth +
+                ", sex='" + sex + '\'' +
+                ", occupation='" + occupation + '\'' +
+                ", mobile=" + mobile +
+                ", address='" + address + '\'' +
+                ", followups=" + followups +
+                '}';
+    }
+
+    @Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;

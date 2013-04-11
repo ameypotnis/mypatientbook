@@ -6,7 +6,14 @@ import org.medical.service.PatientManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-@Service("patientManager") public class PatientManagerImpl implements PatientManager {
+import javax.jws.WebService;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
+
+@Service("patientManager")
+@WebService(serviceName = "PatientService", endpointInterface = "org.medical.service.PatientManager")
+public class PatientManagerImpl implements PatientManager {
 	
 	@Autowired
     PatientDao repository;
@@ -23,8 +30,13 @@ import org.springframework.stereotype.Service;
 	}
 
 	@Override
-	public Iterable<Patient> findAll(String search) {
-		return repository.findAll(patient.firstname.containsIgnoreCase(search));
+	public List<Patient> findAll(String search) {
+        Iterator<Patient> iter = repository.findAll(patient.firstname.containsIgnoreCase(search)).iterator();
+        List<Patient> copy = new ArrayList<Patient>();
+        while (iter.hasNext())
+            copy.add(iter.next());
+        System.out.println("AP==== " + copy);
+		return copy;
 	}
 
 	@Override
@@ -37,18 +49,6 @@ import org.springframework.stereotype.Service;
 	@Override
 	public Patient find(String code) {
 		return repository.findOne(patient.code.eq(code));
-	}
-
-	@Override
-	public void addHistory(History history) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
-	public void addComplaint(Complaint complaint) {
-		// TODO Auto-generated method stub
-		
 	}
 
 	@Override
