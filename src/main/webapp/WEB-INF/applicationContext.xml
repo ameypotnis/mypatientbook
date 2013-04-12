@@ -12,6 +12,16 @@
     <context:component-scan base-package="org.medical"/>
 
     <!-- Add new DAOs here -->
+    <bean id="appointmentDao" class="org.medical.dao.hibernate.GenericDaoHibernate">
+        <constructor-arg value="org.medical.model.Appointment"/>
+    </bean>
 
     <!-- Add new Managers here -->
+    <bean id="appointmentManager" class="org.medical.service.impl.GenericManagerImpl">
+        <constructor-arg>
+            <bean class="org.medical.dao.hibernate.GenericDaoHibernate" autowire="byType">
+                <constructor-arg value="org.medical.model.Appointment"/>
+            </bean>
+        </constructor-arg>
+    </bean>
 </beans>

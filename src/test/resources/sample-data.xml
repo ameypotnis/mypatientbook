@@ -90,4 +90,14 @@
             <value description="role_id">-1</value>
         </row>
     </table>
+    <table name='appointment'>
+        <column>id</column>
+        <column>date</column>
+        <column>patientId</column>
+        <row>
+            <value>1</value>
+            <value>2012-10-10</value>
+            <value>Raible</value>
+        </row>
+    </table>
 </dataset>

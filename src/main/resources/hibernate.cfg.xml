@@ -8,5 +8,6 @@
     <session-factory>
         <mapping class="org.medical.model.User"/>
         <mapping class="org.medical.model.Role"/>
+        <mapping class="org.medical.model.Appointment"/>
     </session-factory>
 </hibernate-configuration>
