@@ -93,11 +93,16 @@
     <table name='appointment'>
         <column>id</column>
         <column>date</column>
-        <column>patientId</column>
+        <column>caseNumber</column>
         <row>
             <value>1</value>
             <value>2012-10-10</value>
             <value>Raible</value>
+        </row>
+        <row>
+            <value>2</value>
+            <value>Bob</value>
+            <value>Johnson</value>
         </row>
     </table>
 </dataset>

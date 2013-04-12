@@ -12,7 +12,8 @@ import java.sql.Date;
 public class Appointment extends BaseObject {
     private Long id;
     private Date date;
-    private String patientId;
+    private String caseNumber;
+    private String name;
 
     @Id @GeneratedValue(strategy = GenerationType.AUTO)
     public Long getId() {
@@ -31,12 +32,20 @@ public class Appointment extends BaseObject {
         this.date = date;
     }
 
-    public String getPatientId() {
-        return patientId;
+    public String getCaseNumber() {
+        return caseNumber;
     }
 
-    public void setPatientId(String patientId) {
-        this.patientId = patientId;
+    public void setCaseNumber(String caseNumber) {
+        this.caseNumber = caseNumber;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     @Override
@@ -48,7 +57,7 @@ public class Appointment extends BaseObject {
 
         if (date != null ? !date.equals(that.date) : that.date != null) return false;
         if (!id.equals(that.id)) return false;
-        if (patientId != null ? !patientId.equals(that.patientId) : that.patientId != null) return false;
+        if (caseNumber != null ? !caseNumber.equals(that.caseNumber) : that.caseNumber != null) return false;
 
         return true;
     }
@@ -63,7 +72,8 @@ public class Appointment extends BaseObject {
         return "Appointment{" +
                 "id=" + id +
                 ", date=" + date +
-                ", patientId='" + patientId + '\'' +
+                ", caseNumber='" + caseNumber + '\'' +
+                ", name='" + name + '\'' +
                 '}';
     }
 }
