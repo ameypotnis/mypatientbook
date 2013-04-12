@@ -14,16 +14,16 @@ import static org.mockito.Mockito.never;
 import static org.mockito.Mockito.verify;
 
 @RunWith(MockitoJUnitRunner.class)
-public class PatientServiceImplTest {
+public class PatientManagerImplTest extends BaseManagerMockTestCase {
 	@Mock
     PatientDao repository;
 	@Mock Predicate predicate;
 	@InjectMocks
-    PatientManager service = new PatientManagerImpl();
+    PatientManager manager = new PatientManagerImpl();
 	
 	@Test public void addShouldCallRepositorySave() {
 		Patient patient = new Patient("Sagar", "Naniv");
-		service.add(patient);
+        manager.add(patient);
 		verify(repository).save(patient);
 	}
 
