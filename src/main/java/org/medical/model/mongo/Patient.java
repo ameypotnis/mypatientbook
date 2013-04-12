@@ -12,32 +12,30 @@ import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.util.Assert;
 import org.springframework.util.StringUtils;
 
-/**
- * An {@link org.medical.model.mongo.Patient} represents a collection of {@link javax.sound.midi.Track}s.
- * 
- */
 @Document
 @XmlRootElement
 public class Patient  implements Serializable {
 
 	@Id
 	private ObjectId id;
-	private String code;
+	private String caseNumber;
 	private String firstname;
+	private String middlename;
 	private String lastname;
 	private Date dateOfBirth;
 	private String sex;
 	private String occupation;
 	private Long mobile;
 	private String address;
+	private Date dateOfConsultation;
 
-  /*  private Map<String, String> history = new HashMap<String, String>();
     private String chiefComplaint;
     private String associatedComplaint;
+    private Map<String, String> history = new HashMap<String, String>();
     private Map<String, String> examination = new HashMap<String, String>();
     private Map<String, String> investigation = new HashMap<String, String>();
     private Map<String, String> test = new HashMap<String, String>();
-    private Map<String, String> diagnosis = new HashMap<String, String>();*/
+    private Map<String, String> diagnosis = new HashMap<String, String>();
 
 	private List<Followup> followups = new ArrayList<Followup>();
 	
@@ -52,63 +50,45 @@ public class Patient  implements Serializable {
 		this.lastname = lastname;
 	}
 
-	public Patient(String code) {
-		this.code = code;
-	}
+    public ObjectId getId() {
+        return id;
+    }
 
-	public void setCode(String code) {
-		this.code = code;
-	}
+    public void setId(ObjectId id) {
+        this.id = id;
+    }
 
-	public ObjectId getId() {
-		return id;
-	}
+    public String getCaseNumber() {
+        return caseNumber;
+    }
 
-	public String getFirstname() {
-		return firstname;
-	}
+    public void setCaseNumber(String caseNumber) {
+        this.caseNumber = caseNumber;
+    }
 
-	public void setFirstname(String firstname) {
-		this.firstname = firstname;
-	}
+    public String getFirstname() {
+        return firstname;
+    }
 
-	public String getLastname() {
-		return lastname;
-	}
+    public void setFirstname(String firstname) {
+        this.firstname = firstname;
+    }
 
-	public void setLastname(String lastname) {
-		this.lastname = lastname;
-	}
+    public String getMiddlename() {
+        return middlename;
+    }
 
-	public Long getMobile() {
-		return mobile;
-	}
+    public void setMiddlename(String middlename) {
+        this.middlename = middlename;
+    }
 
-	public void setMobile(Long mobile) {
-		this.mobile = mobile;
-	}
+    public String getLastname() {
+        return lastname;
+    }
 
-	public String getAddress() {
-		return address;
-	}
-
-	public void setAddress(String address) {
-		this.address = address;
-	}
-
-
-	public List<Followup> getFollowups() {
-		return followups;
-	}
-
-	public void addFollowups(Followup followup) {
-		this.followups.add(followup);
-	}
-	
-	public String getCode() {
-		return code;
-	}
-
+    public void setLastname(String lastname) {
+        this.lastname = lastname;
+    }
 
     public Date getDateOfBirth() {
         return dateOfBirth;
@@ -134,19 +114,115 @@ public class Patient  implements Serializable {
         this.occupation = occupation;
     }
 
+    public Long getMobile() {
+        return mobile;
+    }
+
+    public void setMobile(Long mobile) {
+        this.mobile = mobile;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Date getDateOfConsultation() {
+        return dateOfConsultation;
+    }
+
+    public void setDateOfConsultation(Date dateOfConsultation) {
+        this.dateOfConsultation = dateOfConsultation;
+    }
+
+    public String getChiefComplaint() {
+        return chiefComplaint;
+    }
+
+    public void setChiefComplaint(String chiefComplaint) {
+        this.chiefComplaint = chiefComplaint;
+    }
+
+    public String getAssociatedComplaint() {
+        return associatedComplaint;
+    }
+
+    public void setAssociatedComplaint(String associatedComplaint) {
+        this.associatedComplaint = associatedComplaint;
+    }
+
+    public Map<String, String> getHistory() {
+        return history;
+    }
+
+    public void setHistory(Map<String, String> history) {
+        this.history = history;
+    }
+
+    public Map<String, String> getExamination() {
+        return examination;
+    }
+
+    public void setExamination(Map<String, String> examination) {
+        this.examination = examination;
+    }
+
+    public Map<String, String> getInvestigation() {
+        return investigation;
+    }
+
+    public void setInvestigation(Map<String, String> investigation) {
+        this.investigation = investigation;
+    }
+
+    public Map<String, String> getTest() {
+        return test;
+    }
+
+    public void setTest(Map<String, String> test) {
+        this.test = test;
+    }
+
+    public Map<String, String> getDiagnosis() {
+        return diagnosis;
+    }
+
+    public void setDiagnosis(Map<String, String> diagnosis) {
+        this.diagnosis = diagnosis;
+    }
+
+    public List<Followup> getFollowups() {
+        return followups;
+    }
+
+    public void setFollowups(List<Followup> followups) {
+        this.followups = followups;
+    }
 
     @Override
     public String toString() {
         return "Patient{" +
                 "id=" + id +
-                ", code='" + code + '\'' +
+                ", caseNumber='" + caseNumber + '\'' +
                 ", firstname='" + firstname + '\'' +
+                ", middlename='" + middlename + '\'' +
                 ", lastname='" + lastname + '\'' +
                 ", dateOfBirth=" + dateOfBirth +
                 ", sex='" + sex + '\'' +
                 ", occupation='" + occupation + '\'' +
                 ", mobile=" + mobile +
                 ", address='" + address + '\'' +
+                ", dateOfConsultation=" + dateOfConsultation +
+                ", chiefComplaint='" + chiefComplaint + '\'' +
+                ", associatedComplaint='" + associatedComplaint + '\'' +
+                ", history=" + history +
+                ", examination=" + examination +
+                ", investigation=" + investigation +
+                ", test=" + test +
+                ", diagnosis=" + diagnosis +
                 ", followups=" + followups +
                 '}';
     }

@@ -2,8 +2,6 @@ package org.medical.dao.mongo;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;
-import org.medical.model.mongo.Followup;
-import org.medical.model.mongo.History;
 import org.medical.model.mongo.Patient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.mongodb.core.MongoOperations;
@@ -12,7 +10,9 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import static org.hamcrest.Matchers.is;
 import static org.hamcrest.Matchers.notNullValue;
@@ -38,12 +38,10 @@ public abstract class AbstractIntegrationTest {
 	public AbstractIntegrationTest() {
 		patients = new ArrayList<Patient>();
 		sample1 = new Patient("Sagar", "Naniv");
-		History history = new History();
-		history.addAttributes("Sample1", "false");
-		history.addAttributes("Sample2", "false");
+		Map<String, String> history = new HashMap<String, String>();
+		history.put("Sample1", "false");
+		history.put("Sample2", "false");
 		sample1.setHistory(history);
-		Followup followup = new Followup();
-		sample1.addFollowups(followup);
 		patients.add(sample1);
 		sample2 = new Patient("Kunal", "Chan");
 		patients.add(sample2);

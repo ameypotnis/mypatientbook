@@ -48,7 +48,7 @@ public class PatientManagerImpl implements PatientManager {
 
 	@Override
 	public Patient find(String code) {
-		return repository.findOne(patient.code.eq(code));
+		return repository.findOne(patient.caseNumber.eq(code));
 	}
 
 	@Override
