@@ -4,7 +4,7 @@
     <title><fmt:message key="login.title"/></title>
     <meta name="menu" content="Login"/>
 </head>
-<body id="login">
+<body id="login" background="<c:url value='/images/beach_wallpaper.jpg'/>">
 
 <form method="post" id="loginForm" action="<c:url value='/j_security_check'/>"
     onsubmit="saveUsername(this);return validateForm(this)" class="form-signin" autocomplete="off">

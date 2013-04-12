@@ -94,14 +94,17 @@
         <column>id</column>
         <column>date</column>
         <column>caseNumber</column>
+        <column>name</column>
         <row>
             <value>1</value>
             <value>2012-10-10</value>
+            <value>1234</value>
             <value>Raible</value>
         </row>
         <row>
             <value>2</value>
-            <value>Bob</value>
+            <value>2012-10-11</value>
+            <value>5678</value>
             <value>Johnson</value>
         </row>
     </table>

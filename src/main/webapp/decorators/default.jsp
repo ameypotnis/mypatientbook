@@ -59,7 +59,7 @@
         </div>
     </div>
 
-    <div id="footer">
+    <%--<div id="footer">
         <span class="left"><fmt:message key="webapp.version"/>
             <c:if test="${pageContext.request.remoteUser != null}">
             | <fmt:message key="user.status"/> ${pageContext.request.remoteUser}
@@ -68,7 +68,7 @@
         <span class="right">
             &copy; <fmt:message key="copyright.year"/> <a href="<fmt:message key="company.url"/>"><fmt:message key="company.name"/></a>
         </span>
-    </div>
+    </div>--%>
 <%= (request.getAttribute("scripts") != null) ?  request.getAttribute("scripts") : "" %>
 </body>
 </html>
