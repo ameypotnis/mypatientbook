@@ -24,6 +24,7 @@ public class AppointmentFormControllerTest extends BaseControllerTestCase {
 
         appointment = form.showForm(request);
         assertNotNull(appointment);
+        assertNotNull(appointment.getDate());
     }
 
     @Test
@@ -47,16 +48,16 @@ public class AppointmentFormControllerTest extends BaseControllerTestCase {
         assertNotNull(request.getSession().getAttribute("successMessages"));
     }
 
-   /* @Test
+    @Test
     public void testRemove() throws Exception {
         request = newPost("/appointmentform");
         request.addParameter("delete", "");
         appointment = new Appointment();
-        appointment.setId(2L);
+        appointment.setId(1L);
 
         BindingResult errors = new DataBinder(appointment).getBindingResult();
         form.onSubmit(appointment, errors, request, new MockHttpServletResponse());
 
         assertNotNull(request.getSession().getAttribute("successMessages"));
-    }*/
+    }
 }

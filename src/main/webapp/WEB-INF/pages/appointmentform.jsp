@@ -15,17 +15,24 @@
         <form:hidden path="id"/>
 
         <div class="control-group">
+            <appfuse:label styleClass="control-label" key="appointment.date"/>
+            <div class="controls">
+                <form:input path="date" id="date" maxlength="50"/>
+                <form:errors path="date" cssClass="help-inline"/>
+            </div>
+        </div>
+        <div class="control-group">
+            <appfuse:label styleClass="control-label" key="appointment.caseNumber"/>
+            <div class="controls">
+                <form:input path="caseNumber" id="caseNumber" maxlength="50"/>
+                <form:errors path="caseNumber" cssClass="help-inline"/>
+            </div>
+        </div>
+        <div class="control-group">
             <appfuse:label styleClass="control-label" key="appointment.name"/>
             <div class="controls">
                 <form:input path="name" id="name" maxlength="50"/>
                 <form:errors path="name" cssClass="help-inline"/>
-            </div>
-        </div>
-        <div class="control-group">
-            <appfuse:label styleClass="control-label" key="appointment.lastName"/>
-            <div class="controls">
-                <form:input path="caseNumber" id="caseNumber" maxlength="50"/>
-                <form:errors path="caseNumber" cssClass="help-inline"/>
             </div>
         </div>
         <div class="form-actions">

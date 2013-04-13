@@ -8,8 +8,8 @@
     <div id="actions" class="form-actions">
         <a class="btn btn-primary" href="<c:url value='/appointmentform'/>">
             <i class="icon-plus icon-white"></i> <fmt:message key="button.add"/></a>
-        <a class="btn" href="<c:url value='/mainMenu'/>">
-            <i class="icon-ok"></i> <fmt:message key="button.done"/></a>
+        <%--<a class="btn" href="<c:url value='/mainMenu'/>">               4
+            <i class="icon-ok"></i> <fmt:message key="button.done"/></a>--%>
     </div>
     <display:table name="appointmentList" class="table table-condensed table-striped table-hover" requestURI="" id="appointmentList" export="true" pagesize="25">
         <display:column property="id" sortable="true" href="appointmentform" media="html"

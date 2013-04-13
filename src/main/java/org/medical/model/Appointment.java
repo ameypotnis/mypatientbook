@@ -1,14 +1,17 @@
 package org.medical.model;
 
 
+import org.hibernate.search.annotations.Indexed;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Date;
+import java.util.Date;
 
 
 @Entity
+@Indexed
 public class Appointment extends BaseObject {
     private Long id;
     private Date date;

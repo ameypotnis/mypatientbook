@@ -14,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.sql.Date;
+import java.util.Calendar;
 import java.util.Locale;
 
 @Controller
@@ -41,7 +43,10 @@ public class AppointmentFormController extends BaseFormController {
             return appointmentManager.get(new Long(id));
         }
 
-        return new Appointment();
+        Appointment appointment = new Appointment();
+        appointment.setDate(new Date(Calendar.getInstance().getTimeInMillis()));
+
+        return appointment;
     }
 
     @RequestMapping(method = RequestMethod.POST)
