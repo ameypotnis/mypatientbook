@@ -21,7 +21,7 @@ public class PatientManagerTest extends BaseManagerTestCase {
     private Patient patient = new Patient("Sameer", "Lawson");
 
     @Before public void init() {
-        mgr.add(patient);
+        mgr.save(patient);
     }
 
     @After public void tearDown() {

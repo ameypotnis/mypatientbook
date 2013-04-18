@@ -11,22 +11,16 @@ import java.util.List;
 @Path("/patients")
 public interface PatientManager {
     @POST
-    @Path("/create")
-	public void add(Patient patient);
+	public void save(Patient patient);
 
     @DELETE
-    @Path("/{id}")
-	public void remove(@PathParam("id") String id);
-
-    @PUT
-    @Path("/{id}")
-	public void update(@PathParam("id") String id, Patient patient);
+	public void remove(String id);
 
     @GET
-    @Path("/{searchId}")
-	public Patient find(@PathParam("searchId") String searchString);
+    @Path("single/{id}")
+	public Patient find(@PathParam("id") String searchString);
 
     @GET
-    @Path("/findAll/{searchId}")
-    public List<Patient> findAll(@PathParam("searchId") String searchString);
+    @Path("{searchString}")
+    public List<Patient> findAll(@PathParam("searchString") String searchString);
 }

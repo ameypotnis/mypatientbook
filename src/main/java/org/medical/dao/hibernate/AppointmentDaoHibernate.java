@@ -1,5 +1,6 @@
 package org.medical.dao.hibernate;
 
+import org.hibernate.Criteria;
 import org.hibernate.criterion.Restrictions;
 import org.medical.dao.AppointmentDao;
 import org.medical.model.Appointment;
@@ -18,6 +19,8 @@ public class AppointmentDaoHibernate extends GenericDaoHibernate<Appointment, Lo
 
     @Override
     public List<Appointment> findByDate(Date date) {
-        return getSession().createCriteria(Appointment.class).list();
+        Criteria crit = getSession().createCriteria(Appointment.class);
+//        crit.add(Restrictions.eq("date", new Date()));
+        return crit.list();
     }
 }

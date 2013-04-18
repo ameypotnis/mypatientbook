@@ -22,27 +22,22 @@ public class PatientManagerImpl implements PatientManager {
 	QPatient patient = QPatient.patient;
 
     @Override
-    public void add(Patient patient) {
+    public void save(Patient patient) {
         repository.save(patient);
     }
 
     @Override
-    public void remove(@PathParam("id") String id) {
+    public void remove(String id) {
        repository.delete(new ObjectId(id));
     }
 
     @Override
-    public void update(@PathParam("id") String id, Patient patient) {
-        repository.save(patient);
-    }
-
-    @Override
-    public Patient find(@PathParam("searchId") String searchString) {
+    public Patient find(String searchString) {
         return repository.findOne(patient.firstname.equalsIgnoreCase(searchString));
     }
 
     @Override
-    public List<Patient> findAll(@PathParam("searchId") String searchString) {
+    public List<Patient> findAll(String searchString) {
         Iterator<Patient> iter = repository.findAll(patient.firstname.containsIgnoreCase(searchString)).iterator();
         List<Patient> copy = new ArrayList<Patient>();
         while (iter.hasNext())

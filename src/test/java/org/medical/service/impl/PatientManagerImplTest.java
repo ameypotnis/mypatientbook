@@ -23,7 +23,7 @@ public class PatientManagerImplTest extends BaseManagerMockTestCase {
 	
 	@Test public void addShouldCallRepositorySave() {
 		Patient patient = new Patient("Sagar", "Naniv");
-        manager.add(patient);
+        manager.save(patient);
 		verify(repository).save(patient);
 	}
 
