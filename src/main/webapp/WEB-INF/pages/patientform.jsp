@@ -4,17 +4,7 @@
     <meta name="menu" content="PatientMenu"/>
 </head>
 <body>
-<script>
-    $(document).ready(function() {
-        // Activates knockout.js
-        ko.applyBindings(new AppViewModel());
-    });
-    // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
-    function AppViewModel() {
-        this.firstName = "Bert";
-        this.lastName = "Bertington";
-    }
-</script>
+<script src="<c:url value='/scripts/patient.js'/>"></script>
 <section>
     <h1><span data-bind="text: firstName"></span>&nbsp;<span data-bind="text: lastName"></span></h1>
     <h4>Cronic case</h4>
@@ -24,6 +14,13 @@
         href="#personal"><i class="icon-chevron-right"></i>Personal</a>
 
     <div class="container">
+        <div class="row">
+            <button type="submit" class="btn btn-primary" name="save">
+                <i class="icon-ok icon-white"></i> <fmt:message key="button.save"/>
+            </button>
+            <a class="btn" href="<c:url value='/mainMenu'/>">
+                <i class="icon-ok"></i> <fmt:message key="button.done"/></a>
+        </div>
         <div class="row">
             <section id="complaint">
                 <legend>Complaint</legend>
@@ -61,20 +58,17 @@
         </div>
         <div class="row">
             <section id="diagnosis">
-                <legend class="">Diagnosis</legend>
-                <div data-bind="foreach: diagnosis()" class="row">
-                    <div class="span6">
-                        <input type="text" data-bind="value: key"
-                               placeholder="Start typing..." class="input">
-                        <input type="text" data-bind="value: value"
-                               placeholder="value" class="input">
-                        <a class="btn" href="#" data-bind="click:$parent.deleteDiagnosis"><i class="icon-trash"></i></a>
-                    </div>
+                <legend>Diagnosis</legend>
+                <div data-bind="foreach: diagnosis()" class="span6">
+                    <h4> </h4>
+                    <input type="text" data-bind="value: key"
+                           placeholder="Start typing..." class="input">
+                    <input type="text" data-bind="value: value"
+                           placeholder="value" class="input">
+                    <a class="btn" href="#" data-bind="click:$parent.deleteHistory"><i class="icon-trash"></i></a>
                 </div>
-                <div class="row">
-                    <div class="span6">
-                        <button type="submit" data-bind="click: addDiagnosis" class="btn">Add</button>
-                    </div>
+                <div class="span6">
+                    <button type="submit" data-bind="click: addHistory" class="btn">Add</button>
                 </div>
                 <p class="pull-right">
                     <a href="#top">Back to top</a>
@@ -83,20 +77,17 @@
         </div>
         <div class="row">
             <section id="treatment">
-                <legend class="">Treatments</legend>
-                <div data-bind="foreach: treatments()" class="row">
-                    <div class="span6">
-                        <input type="text" data-bind="value: key"
-                               placeholder="Start typing..." class="input">
-                        <input type="text" data-bind="value: value"
-                               placeholder="value" class="input">
-                        <a class="btn" href="#" data-bind="click:$parent.deleteTreatment"><i class="icon-trash"></i></a>
-                    </div>
+                <legend>Treatment</legend>
+                <div data-bind="foreach: treatment()" class="span6">
+                    <h4> </h4>
+                    <input type="text" data-bind="value: key"
+                           placeholder="Start typing..." class="input">
+                    <input type="text" data-bind="value: value"
+                           placeholder="value" class="input">
+                    <a class="btn" href="#" data-bind="click:$parent.deleteHistory"><i class="icon-trash"></i></a>
                 </div>
-                <div class="row">
-                    <div class="span6">
-                        <button type="submit" data-bind="click: addTreatment" class="btn">Add</button>
-                    </div>
+                <div class="span6">
+                    <button type="submit" data-bind="click: addHistory" class="btn">Add</button>
                 </div>
                 <p class="pull-right">
                     <a href="#top">Back to top</a>
@@ -105,20 +96,17 @@
         </div>
         <div class="row">
             <section id="test">
-                <legend class="">Tests</legend>
-                <div data-bind="foreach: tests()" class="row">
-                    <div class="span6">
-                        <input type="text" data-bind="value: key"
-                               placeholder="Start typing..." class="input">
-                        <input type="text" data-bind="value: value"
-                               placeholder="value" class="input">
-                        <a class="btn" href="#" data-bind="click:$parent.deleteTest"><i class="icon-trash"></i></a>
-                    </div>
+                <legend>Test</legend>
+                <div data-bind="foreach: test()" class="span6">
+                    <h4> </h4>
+                    <input type="text" data-bind="value: key"
+                           placeholder="Start typing..." class="input">
+                    <input type="text" data-bind="value: value"
+                           placeholder="value" class="input">
+                    <a class="btn" href="#" data-bind="click:$parent.deleteHistory"><i class="icon-trash"></i></a>
                 </div>
-                <div class="row">
-                    <div class="span6">
-                        <button type="submit" data-bind="click: addTest" class="btn">Add</button>
-                    </div>
+                <div class="span6">
+                    <button type="submit" data-bind="click: addHistory" class="btn">Add</button>
                 </div>
                 <p class="pull-right">
                     <a href="#top">Back to top</a>
@@ -136,7 +124,7 @@
                             <div class="control-group">
                                 <div class="controls">
                                     <label for="firstname">Firstname:</label>
-                                    <input id="firstname" required data-bind="value: firstName" type="text"
+                                    <input id="firstname" data-bind="value: firstName" type="text"
                                            placeholder="First" class="input">
                                 </div>
                             </div>
@@ -153,7 +141,7 @@
                         <div class="span4">
                             <div class="control-group">
                                 <div class="controls">
-                                    <label for="lastname">Lastname:</label> <input id="lastname" required
+                                    <label for="lastname">Lastname:</label> <input id="lastname"
                                                                                    data-bind="value: lastName"
                                                                                    type="text" placeholder="Last"
                                                                                    class="input">
@@ -166,7 +154,7 @@
                         <div class="span4">
                             <div class="control-group">
                                 <div class="controls">
-                                    <label for="sex">Sex:</label> <select id="sex" required data-bind="value: sex"
+                                    <label for="sex">Sex:</label> <select id="sex" data-bind="value: sex"
                                                                           class="input-small">
                                     <option></option>
                                     <option>Male</option>
@@ -179,7 +167,7 @@
                         <div class="span4">
                             <div class="control-group">
                                 <div class="controls">
-                                    <label for="age">Age:</label> <input id="age" type="text" required
+                                    <label for="age">Age:</label> <input id="age" type="text"
                                                                          data-bind="value: age" placeholder="Age"
                                                                          class="input-small">
                                 </div>
@@ -203,6 +191,8 @@
                 <button type="submit" class="btn btn-primary" name="save">
                     <i class="icon-ok icon-white"></i> <fmt:message key="button.save"/>
                 </button>
+                <a class="btn" href="<c:url value='/mainMenu'/>">
+                    <i class="icon-ok"></i> <fmt:message key="button.done"/></a>
             </form>
         </div>
     </div>
