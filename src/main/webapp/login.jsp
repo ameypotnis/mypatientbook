@@ -1,10 +1,17 @@
 <%@ include file="/common/taglibs.jsp" %>
 
+<style type="text/css">
+    .bgimg {
+        background-image: url(<c:url value='/images/beach_wallpaper.jpg'/>);
+    }
+</style>
+<div  class="bgimg">
+
 <head>
     <title><fmt:message key="login.title"/></title>
     <meta name="menu" content="Login"/>
 </head>
-<body id="login" background="<c:url value='/images/beach_wallpaper.jpg'/>">
+<body id="login">
 
 <form method="post" id="loginForm" action="<c:url value='/j_security_check'/>"
     onsubmit="saveUsername(this);return validateForm(this)" class="form-signin" autocomplete="off">
@@ -44,3 +51,4 @@
 
 <p><fmt:message key="login.passwordHint"/></p>
 </body>
+</div>
