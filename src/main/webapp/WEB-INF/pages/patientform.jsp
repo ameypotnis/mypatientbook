@@ -4,6 +4,17 @@
     <meta name="menu" content="PatientMenu"/>
 </head>
 <body>
+<script>
+    $(document).ready(function() {
+        // Activates knockout.js
+        ko.applyBindings(new AppViewModel());
+    });
+    // This is a simple *viewmodel* - JavaScript that defines the data and behavior of your UI
+    function AppViewModel() {
+        this.firstName = "Bert";
+        this.lastName = "Bertington";
+    }
+</script>
 <section>
     <h1><span data-bind="text: firstName"></span>&nbsp;<span data-bind="text: lastName"></span></h1>
     <h4>Cronic case</h4>
