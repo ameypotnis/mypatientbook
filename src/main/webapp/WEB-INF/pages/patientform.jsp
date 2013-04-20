@@ -37,82 +37,22 @@
                 </div>
             </section>
         </div>
-        <div class="row">
-            <section id="history">
+        <section id="history">
+            <div class="row">
                 <legend>History</legend>
-                    <div data-bind="foreach: histories()" class="span6">
-                        <h4> </h4>
-                        <input type="text" data-bind="value: key"
-                               placeholder="Start typing..." class="input">
-                        <input type="text" data-bind="value: value"
-                               placeholder="value" class="input">
-                        <a class="btn" href="#" data-bind="click:$parent.deleteHistory"><i class="icon-trash"></i></a>
-                    </div>
-                        <div class="span6">
-                            <button type="submit" data-bind="click: addHistory" class="btn">Add</button>
-                        </div>
-                    <p class="pull-right">
-                        <a href="#top">Back to top</a>
-                    </p>
-            </section>
-        </div>
-        <div class="row">
-            <section id="diagnosis">
-                <legend>Diagnosis</legend>
-                <div data-bind="foreach: diagnosis()" class="span6">
-                    <h4> </h4>
-                    <input type="text" data-bind="value: key"
-                           placeholder="Start typing..." class="input">
-                    <input type="text" data-bind="value: value"
-                           placeholder="value" class="input">
-                    <a class="btn" href="#" data-bind="click:$parent.deleteHistory"><i class="icon-trash"></i></a>
-                </div>
-                <div class="span6">
+                <span>&nbsp;</span>
+                <div class="span12">
+                    <input type="text" id="CompanyName" data-bind="value: key" placeholder="Start typing..."
+                           class="validatable autocomplete ui-autocomplete-input" autocomplete="off">
+                    <input type="text" data-bind="value: value" placeholder="value" class="input">
                     <button type="submit" data-bind="click: addHistory" class="btn">Add</button>
                 </div>
-                <p class="pull-right">
-                    <a href="#top">Back to top</a>
-                </p>
-            </section>
-        </div>
-        <div class="row">
-            <section id="treatment">
-                <legend>Treatment</legend>
-                <div data-bind="foreach: treatment()" class="span6">
-                    <h4> </h4>
-                    <input type="text" data-bind="value: key"
-                           placeholder="Start typing..." class="input">
-                    <input type="text" data-bind="value: value"
-                           placeholder="value" class="input">
-                    <a class="btn" href="#" data-bind="click:$parent.deleteHistory"><i class="icon-trash"></i></a>
-                </div>
-                <div class="span6">
-                    <button type="submit" data-bind="click: addHistory" class="btn">Add</button>
-                </div>
-                <p class="pull-right">
-                    <a href="#top">Back to top</a>
-                </p>
-            </section>
-        </div>
-        <div class="row">
-            <section id="test">
-                <legend>Test</legend>
-                <div data-bind="foreach: test()" class="span6">
-                    <h4> </h4>
-                    <input type="text" data-bind="value: key"
-                           placeholder="Start typing..." class="input">
-                    <input type="text" data-bind="value: value"
-                           placeholder="value" class="input">
-                    <a class="btn" href="#" data-bind="click:$parent.deleteHistory"><i class="icon-trash"></i></a>
-                </div>
-                <div class="span6">
-                    <button type="submit" data-bind="click: addHistory" class="btn">Add</button>
-                </div>
-                <p class="pull-right">
-                    <a href="#top">Back to top</a>
-                </p>
-            </section>
-        </div>
+            </div>
+                <div  data-bind="foreach: histories()" >
+                <b><span class="span4" data-bind="text: key">:</span></b>
+                <span class="span8" data-bind="text: value"></span>
+            </div>
+        </section>
         <div class="row" id="personal">
             <form class="form-horizontal">
                 <div class="container">

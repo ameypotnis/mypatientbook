@@ -13,6 +13,10 @@ function PatientModel(firstName, lastName) {
     this.diagnosis = ko.observableArray([]);
     this.treatment = ko.observableArray([]);
     this.test = ko.observableArray([]);
+
+    this.key = ko.observable(blank);
+    this.value = ko.observable(blank);
+
 };
 
 PatientModel.prototype.activate = function (input) {
@@ -57,7 +61,7 @@ PatientModel.prototype.saveComplaint = function () {
 
 PatientModel.prototype.addHistory = function () {
     var self = this;
-    self.histories.push({key: '', value: ''});
+    self.histories.push({key: self.key(), value: self.value()});
 }
 
 PatientModel.prototype.saveHistory = function () {
@@ -96,6 +100,18 @@ PatientModel.prototype.saveTest = function () {
 }
 
 $(document).ready(function () {
+    var self = this;
+    self.data = ["Test", "cool", "what", "Example", "Cookies"];
     // Activates knockout.js
-    ko.applyBindings(new PatientModel("Sam", "Gat"));
+    var patient = new PatientModel("Sam", "Gat");
+    ko.applyBindings(patient);
+    setInterval(function(){
+            $("#CompanyName").autocomplete({
+                source: self.data,
+                select: function(event, ui) {
+                    $(this).val(ui.item.value).change();
+                }
+            });
+        }
+        ,1000)
 });
