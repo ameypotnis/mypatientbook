@@ -39,6 +39,10 @@ public class PatientManagerImpl implements PatientManager {
 
     private void addReferences(Patient patient) {
         referenceManage.add(ReferenceKey.HISTORY, patient.getHistory().keySet());
+        referenceManage.add(ReferenceKey.DIAGNOSIS, patient.getDiagnosis().keySet());
+        referenceManage.add(ReferenceKey.EXAMINATION, patient.getExamination().keySet());
+        referenceManage.add(ReferenceKey.INVESTIGATION, patient.getInvestigation().keySet());
+        referenceManage.add(ReferenceKey.TEST, patient.getTest().keySet());
     }
 
     @Override
