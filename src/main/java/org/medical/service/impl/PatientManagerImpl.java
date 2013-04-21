@@ -4,6 +4,7 @@ import org.bson.types.ObjectId;
 import org.medical.dao.mongo.PatientDao;
 import org.medical.model.mongo.*;
 import org.medical.service.PatientManager;
+import org.medical.service.ReferenceManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -19,18 +20,25 @@ public class PatientManagerImpl implements PatientManager {
 	
 	@Autowired
     PatientDao repository;
+    @Autowired
+    ReferenceManager referenceManage;
 	QPatient patient = QPatient.patient;
 
     @Override
     public Patient save(Patient patient) {
-        if(patient.getCaseNumber() != null) {
-        Patient inDB = repository.findOne(this.patient.caseNumber.eq(patient.getCaseNumber()));
-        if (inDB != null) {
-            //replace existing database record with new
-            patient.setId(inDB.getId());
+        if (patient.getCaseNumber() != null) {
+            Patient inDB = repository.findOne(this.patient.caseNumber.eq(patient.getCaseNumber()));
+            if (inDB != null) {
+                //replace existing database record with new
+                patient.setId(inDB.getId());
+            }
         }
-        }
+        addReferences(patient);
         return repository.save(patient);
+    }
+
+    private void addReferences(Patient patient) {
+        referenceManage.add(ReferenceKey.HISTORY, patient.getHistory().keySet());
     }
 
     @Override

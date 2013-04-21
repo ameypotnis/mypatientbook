@@ -1,6 +1,6 @@
 package org.medical.model.mongo;
 
 public enum ReferenceKey {
-	EXAMINATION, INVESTIGATION, DIAGNOSIS, TEST
+	EXAMINATION, INVESTIGATION, DIAGNOSIS, HISTORY, TEST
 
 }

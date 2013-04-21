@@ -13,6 +13,7 @@ import javax.jws.WebService;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 @Service("referenceManager")
 @WebService(serviceName = "ReferenceService", endpointInterface = "org.medical.service.ReferenceManager")
@@ -39,5 +40,14 @@ public class ReferenceManagerImpl implements ReferenceManager {
         while (iter.hasNext())
             copy.add(iter.next());
         return copy;
+    }
+
+    @Override
+    public void add(ReferenceKey key, Set<String> values) {
+        for (String value : values) {
+            Reference ref = new Reference(key);
+            ref.setValue(value);
+            repository.save(ref);
+        }
     }
 }
