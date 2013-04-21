@@ -22,8 +22,15 @@ public class PatientManagerImpl implements PatientManager {
 	QPatient patient = QPatient.patient;
 
     @Override
-    public void save(Patient patient) {
-        repository.save(patient);
+    public Patient save(Patient patient) {
+        if(patient.getCaseNumber() != null) {
+        Patient inDB = repository.findOne(this.patient.caseNumber.eq(patient.getCaseNumber()));
+        if (inDB != null) {
+            //replace existing database record with new
+            patient.setId(inDB.getId());
+        }
+        }
+        return repository.save(patient);
     }
 
     @Override

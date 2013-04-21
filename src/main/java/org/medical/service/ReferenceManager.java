@@ -17,6 +17,6 @@ public interface ReferenceManager {
 	public void remove(@PathParam("id") String id);
 
     @GET
-    @Path("/findAll/{searchId}")
+    @Path("{searchId}")
     public List<Reference> findAll(@PathParam("searchId") String searchString);
 }

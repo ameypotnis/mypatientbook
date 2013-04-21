@@ -41,7 +41,28 @@ public class Patient  implements Serializable {
 	
 	public Patient() {	}
 
-	public Patient(String firstname, String lastname) {
+    public Patient(Patient patient) {
+        this.setCaseNumber(patient.getCaseNumber());
+        this.setFirstname(patient.getFirstname());
+        this.setMiddlename(patient.getMiddlename());
+        this.setLastname(patient.getLastname());
+        this.setDateOfBirth(patient.getDateOfBirth());
+        this.setSex(patient.getSex());
+        this.setOccupation(patient.getOccupation());
+        this.setMobile(patient.getMobile());
+        this.setAddress(patient.getAddress());
+        this.setDateOfConsultation(patient.getDateOfConsultation());
+        this.setChiefComplaint(patient.getChiefComplaint());
+        this.setAssociatedComplaint(patient.getAssociatedComplaint());
+        this.setHistory(patient.getHistory());
+        this.setExamination(patient.getExamination());
+        this.setInvestigation(patient.getInvestigation());
+        this.setTest(patient.getTest());
+        this.setDiagnosis(patient.getDiagnosis());
+        this.setFollowups(patient.getFollowups());
+    }
+
+    public Patient(String firstname, String lastname) {
 		Assert.isTrue(StringUtils.hasText(firstname), "firstname must be given!");
 		Assert.isTrue(StringUtils.hasText(lastname), "lastname must be given!");
 
@@ -265,5 +286,4 @@ public class Patient  implements Serializable {
 			return false;
 		return true;
 	}
-	
 }

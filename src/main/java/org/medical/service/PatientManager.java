@@ -11,7 +11,7 @@ import java.util.List;
 @Path("/patients")
 public interface PatientManager {
     @POST
-	public void save(Patient patient);
+	public Patient save(Patient patient);
 
     @DELETE
 	public void remove(String id);
