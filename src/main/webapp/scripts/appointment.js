@@ -1,30 +1,66 @@
-Appointment = function () {
-    this.patients = [];
-}
+$(function(){
 
-Appointment.prototype.getPatients = function () {
-    this.addPatients(this.callback);
-}
+    //attach autocomplete
+    $("#name").autocomplete({
 
-Appointment.prototype.callback = function (patients) {
-    this.patients = patients;
-    alert(JSON.stringify(this.patients));
-    jQuery( "#caseNumber").val('asas');
-}
+        //define callback to format results
+        source: function(req, add){
 
-Appointment.prototype.addPatients = function (callback) {
-    $.ajax({
-        type: "GET",
-        url: 'http://localhost:8090/services/api/patients/Kunal',
-        dataType: "json",
-        contentType: "application/json",
-        processData: false,
-        success: function (data) {
-            callback(data);
+            //pass request to server
+            $.getJSON("http://localhost:8090/services/api/patients/Kunal", req, function(data) {
+
+                //create array for response objects
+                var suggestions = [];
+
+                //process response
+                $.each(data, function(i, val){
+                    suggestions.push(val.firstname);
+                });
+
+                //pass array name callback
+                add(suggestions);
+            });
         },
 
-        error: function (error, errorStatus) {
-            console.info("error: " + errorStatus);
+        //define select handler
+        select: function(e, ui) {
+
+            //create formatted patient
+            var patient = ui.item.value,
+                span = $("<span>").text(patient),
+                a = $("<a>").addClass("remove").attr({
+                    href: "javascript:",
+                    title: "Remove " + patient
+                }).text("x").appendTo(span);
+
+            //add patient to patient div
+            span.insertBefore("#name");
+        },
+
+        //define select handler
+        change: function() {
+
+            //prevent 'name' field being updated and correct position
+            $("#name").val("").css("top", 2);
         }
     });
-}
+
+    //add click handler to patients div
+    $("#patients").click(function(){
+
+        //focus 'to' field
+        $("#name").focus();
+    });
+
+    //add live handler for clicks on remove links
+    $(".remove", document.getElementById("patients")).live("click", function(){
+
+        //remove current patient
+        $(this).parent().remove();
+
+        //correct 'name' field position
+        if($("#patients span").length === 0) {
+            $("#name").css("top", 0);
+        }
+    });
+});

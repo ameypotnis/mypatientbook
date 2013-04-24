@@ -24,17 +24,12 @@
                 </div>
             </div>
             <div class="control-group">
-                <appfuse:label styleClass="control-label" key="appointment.caseNumber"/>
-                <div class="controls">
-                    <form:input path="caseNumber" id="caseNumber" maxlength="50"/>
-                    <form:errors path="caseNumber" cssClass="help-inline"/>
-                </div>
-            </div>
-            <div class="control-group">
                 <appfuse:label styleClass="control-label" key="appointment.name"/>
                 <div class="controls">
-                    <form:input path="name" placeholder="start typing..." id="name" maxlength="50"/>
-                    <form:errors path="name" cssClass="help-inline"/>
+                    <div id="patient" class="ui-helper-clearfix">
+                        <form:input path="name" placeholder="start typing..." id="name" maxlength="50"/>
+                        <form:errors path="name" cssClass="help-inline"/>
+                    </div>
                 </div>
             </div>
             <div class="form-actions">
@@ -55,8 +50,6 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
-        var appointment = new Appointment();
-        appointment.getPatients();
         $("input[type='text']:visible:enabled:first", document.forms['appointmentForm']).focus();
     });
 </script>

@@ -13,6 +13,8 @@
     <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/lib/bootstrap-responsive-2.2.1.min.css'/>" />
     <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/style.css'/>" />
     <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/jquery-ui.css'/>" />
+    <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/ui-lightness/jquery-ui-1.8.custom.css'/>" />
+    <link rel="stylesheet" type="text/css" media="all" href="<c:url value='/styles/autocomplete.css'/>" />
     <decorator:head/>
 
     <c:if test="${!jqueryProvided}">
